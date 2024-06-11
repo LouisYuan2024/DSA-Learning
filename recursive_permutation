@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+static void permute(int* list, int i = 0, int n = 2)
+{
+	if (i == n)
+	{
+		copy(list, list + n + 1, ostream_iterator<int>(cout, ""));
+		cout << endl;
+	}
+	else
+    // in this procedure, proceed 1bit or delete 1 bit can be achieved by "SWAP"
+    // REASON for this, there is no information generated/altered, only to queue them.
+  
+		for(int a =i; a<= n;a++)      
+	{
+			swap(list[a], list[i]);
+			permute(list,i+1, n);
+			swap(list[a], list[i]);
+	}
+}
+
+int main()
+{
+	int a[10] = { 0,1,2,3,4,5,6,7,8,9 };
+	permute(a, 0, 3);
+}
